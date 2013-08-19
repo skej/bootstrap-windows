@@ -1,0 +1,170 @@
+/* @override 
+  http://localhost/jspack/bs-extra.css */
+/* Tablet in landscape and desktop */
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  body,
+  html {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+  }
+  .panel {
+    transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    overflow: hidden;
+    position: relative;
+    /* //.navbar */
+  
+  }
+  .panel.navbar {
+    width: 100%;
+    margin: 0px;
+  }
+  .panel.navbar > .navbar-inner {
+    /* more padding for phones */
+  
+    padding: 14px;
+  }
+  .panel.navbar > .navbar-inner > .container > .btn-navbar.pull-left {
+    /* fix floating issue $*/
+  
+    float: left !important;
+  }
+  .panel.navbar.panel-center {
+    margin-bottom: 0px;
+  }
+  .panel.panel-left,
+  .panel.panel-right {
+    position: fixed;
+    top: 0px;
+    background: black;
+    width: 80%;
+    max-width: 80%;
+  }
+  .panel.panel-left > .contain,
+  .panel.panel-right > .contain {
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  .panel.panel-left {
+    height: 100%;
+    left: -80%;
+    padding: 0px !important;
+    /* color of left panel */
+  
+    background-color: #242424;
+  }
+  .panel.panel-left.right {
+    left: 0px;
+  }
+  .panel.panel-left > .contain {
+    height: 100%;
+  }
+  .panel.panel-left > .contain > .nav {
+    /* for scrolling */
+  
+    padding-bottom: 50px;
+  }
+  .panel.panel-left > .contain > .nav li:not(.footer):nth-child(2n) {
+    /* zebra rows */
+  
+    background-color: #353434;
+  }
+  .panel.panel-left > .contain > .nav li:not(.footer) > a {
+    /* button style */
+  
+    font-size: large;
+    padding: 20px;
+    border: 0px;
+    color: #ececec;
+  }
+  .panel.panel-left > .contain > .nav li.dropdown > .dropdown-menu {
+    width: 100%;
+    background-color: #424242;
+    margin-top: -1px;
+    position: relative;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    float: none;
+  }
+  .panel.panel-left > .contain > .nav li.dropdown > .dropdown-menu > li {
+    padding-left: 20px;
+  }
+  .panel.panel-left > .contain > .nav li.active > a {
+    /* active */
+  
+    background-color: #5a2866;
+  }
+  .panel.panel-left > .contain > .nav li > a:hover {
+    /* hoveing - dont change color*/
+  
+    background-color: inherit;
+  }
+  .panel.panel-left > .contain > .nav li.li-bottom {
+    border-top: 1px solid #999;
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    background-color: #3e3d3d;
+  }
+  .panel.panel-left > .contain > .nav li.li-bottom > img {
+    /* bottom image alignment */
+  
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  .panel.panel-left > .contain > .nav li.footer {
+    margin: 10px;
+    font-size: 12px;
+  }
+  .panel.panel-left > .contain > .nav li.footer > div > a {
+    margin: 0 2%;
+    font-size: 12px;
+    color: #08c;
+  }
+  .panel.panel-left > .contain > .nav li a:hover,
+  .panel.panel-left > .contain > .nav li a:focus {
+    background: none;
+    background-color: none;
+    background-image: none;
+    filter: none;
+  }
+  .panel.panel-right {
+    height: 100%;
+    right: -80%;
+  }
+  .panel.panel-right.left {
+    right: 0px;
+  }
+  .panel.panel-center.container {
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .panel.panel-center.container > .contain {
+    padding: 10px;
+    /* fix scrolling */
+  
+    margin: 0 0 150px 0;
+  }
+  .panel.panel-center.left {
+    /* disable scrolling */
+  
+    overflow: hidden;
+    right: 80%;
+  }
+  .panel.panel-center.right {
+    /* disable scrolling */
+  
+    overflow: hidden;
+    left: 80%;
+  }
+  .panel .affix {
+    position: relative;
+  }
+}
