@@ -2,15 +2,16 @@ $ ->
   $.panels = (toggle) ->
     if toggle
       if $('.panel').hasClass toggle
-        $('.panel').removeClass toggle
+        $('.panel').removeClass "left right"
       else
         $('.panel').addClass toggle
     else
-      $('[data-toggle=slide]').click ->
+      $('[data-toggle=slide]').click (event) ->
+        event.preventDefault()
         target = $ $(@).attr 'data-target'
         dir = if target.hasClass('panel-left') then 'right' else 'left'
         if target.hasClass(dir)
-          $('.panel.panel-center').removeClass dir
+          $('.panel.panel-center').removeClass 'left right'
           target.removeClass dir
         else
           $('.panel.panel-center').addClass dir

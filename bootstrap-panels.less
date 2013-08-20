@@ -1,46 +1,10 @@
-/* @override 
-  http://localhost/jspack/bs-extra.css */
-  
-/* Tablet in landscape and desktop */
-// @media (min-width: 768px) {
-//  /* @group Navbar */
-//  #navbar-desktop .navbar-inner{
-//    -webkit-border-radius: 0px;
-//    -moz-border-radius: 0px;
-//    border-radius: 0px;
-//    border-left: 0px;
-//    border-top: 0px;
-//    border-right:0px;
-//    padding: 15px 60px;}
-//    #navbar-desktop .navbar-inner ul.nav{
-//      margin: 10px 20px 0 0;}
-//    #navbar-desktop .navbar-inner .pull-right{
-//      margin-top: 10px;}
-//      #navbar-desktop .navbar-inner .pull-right img{
-//        margin-top: -5px;}
-//    #navbar-desktop .brand{
-//      margin-top: 8px;}
-//    #navbar-desktop .brand img{
-//      margin-top: -7px;}
-//  /* @end */
-  
-  
-//  /* @group Footer */
-//  footer{
-//    padding: 40px;}
-//    footer div{
-//      line-height: 3em;}
-//      footer div > *{
-//        white-space: nowrap;}
-//      footer a, footer a:link, footer a:active,footer a:hover,footer a:visited{
-//        padding: 20px;
-//        color: #999;
-//        text-decoration: none;}
-//  /* @end */
-  
-// } 
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
 
-/* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
   body, html {
     overflow: hidden;
@@ -49,51 +13,24 @@
     padding: 0px;
   }
   .panel{
-    transition: all .3s;
-    -moz-transition: all .3s;
-    -webkit-transition: all .3s;
-    -o-transition: all .3s;
+    .transition(all .3s);
     overflow: hidden;
     position: relative;
-    &.navbar{
-      width: 100%;
-      margin: 0px;
-      > .navbar-inner{
-        /* more padding for phones */
-        padding: 14px;
-        > .container > .btn-navbar.pull-left{
-          /* fix floating issue $*/
-          float: left !important;
-        }
-      }
-      &.panel-center{
-        margin-bottom: 0px;
-      }
-    } /* //.navbar */
     &.panel-left,
     &.panel-right{
       position: fixed;
       top: 0px;
       background: black;
       width: 80%;
-      max-width: 80%;
-      > .contain{
-        overflow:hidden;
-        overflow-y: scroll;
-      }
-    }
-    &.panel-left{
       height: 100%;
-      left:-80%;
-      padding: 0px !important;
+      max-width: 80%;
       /* color of left panel */
       background-color: #242424;
-      &.right{
-        left:0px; 
-      }
       > .contain{
         height: 100%;
-        > .nav{
+        overflow: hidden;
+        overflow-y: scroll;
+        > ul.nav.nav-stacked{
           /* for scrolling */
           padding-bottom: 50px;
           li{
@@ -138,15 +75,19 @@
               background-color: inherit;
             }
             &.li-bottom{
+              /* intended for logged in user name + avatar */
               border-top: 1px solid #999;
               position: absolute;
               bottom: 1px;
               width: 100%;
               background-color: #3e3d3d;
-              > img{
-                /* bottom image alignment */
-                vertical-align: middle;
-                margin-right: 5px;
+              > a {
+                padding: 0px;
+                > img{
+                  /* bottom image alignment */
+                  vertical-align: middle;
+                  margin-right: 5px;
+                }
               }
             }
             &.footer{
@@ -171,15 +112,35 @@
         }
       }
     }
+    &.panel-left{
+      left:-80%;
+      &.right{
+        left:0px; 
+      }
+    }
     &.panel-right{
-      height: 100%;
       right:-80%;
       &.left{
         right:0px;
       }
     }
     &.panel-center{
+      &.navbar{
+        /* top navbar */
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 0px;
+        > .navbar-inner{
+          /* more padding for phones */
+          padding: 10px;
+          > .container > .btn{
+            padding: 8px 12px;
+            margin: 9px;
+          }
+        }
+      }
       &.container{
+        /* main content */
         overflow-y: scroll;
         height: 100%;
         > .contain{
@@ -191,7 +152,7 @@
       &.left{
         /* disable scrolling */
         overflow: hidden;
-        right: 80%;
+        left: -80%;
       }
       &.right{
         /* disable scrolling */
