@@ -1,0 +1,26 @@
+{
+  "name": "Bootstrap Windows",
+  "description": "Bootstrap Windows",
+  "author": {
+    "name": "Steve Peak",
+    "twitter": "@iopeak",
+    "email": "steve@stevepeak.net"
+  },
+  "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stevepeak/bootstrap-windows"
+  },
+  "bugs": {
+    "url": "https://github.com/stevepeak/bootstrap-windows/issues"
+  },
+  "devDependencies": {
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt": "*"
+  },
+  "scripts": {
+  }
+}

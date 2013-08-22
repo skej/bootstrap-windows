@@ -16,7 +16,7 @@ module.exports = (grunt) ->
     less: 
       lib: 
         files:
-          'bootstrap-windows.css': 'bootstrap-windows.less'
+          'bootstrap-windows.min.css': 'bootstrap-windows.less'
         options:
           compress: true
 
