@@ -3,7 +3,7 @@ module.exports = (grunt) ->
   grunt.initConfig
     coffee:
       ext:
-        files: 'bootstrap-panels.js': 'bootstrap-panels.coffee'
+        files: 'bootstrap-windows.js': 'bootstrap-windows.coffee'
         options: bare: false
 
     uglify:
@@ -11,12 +11,12 @@ module.exports = (grunt) ->
         mangle: false
       target:
         files:
-          "bootstrap-panels.min.js": "bootstrap-panels.js"
+          "bootstrap-windows.min.js": "bootstrap-windows.js"
 
     less: 
       lib: 
         files:
-          'bootstrap-panels.css': 'bootstrap-panels.less'
+          'bootstrap-windows.css': 'bootstrap-windows.less'
         options:
           compress: true
 
