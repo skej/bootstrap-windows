@@ -4,119 +4,99 @@
 <meta charset="utf-8" />
 <title>Bootstrap Panels</title>
 <meta http-equiv="Expires" content="Mon, 23 May 2050 20:17:44 GMT">
-<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
-<link href="bootpanels.css" rel="stylesheet">
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="bootstrap-windows.css" rel="stylesheet">
 <!--[if IE 7]>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome-ie7.min.css" rel="stylesheet">
 <![endif]-->
 </head>
 <body>
-  
-<div id="navbar-phone" class="navbar navbar-fixed-top slide-panel center visible-phone">
+ 
+<nav id="phone-nav" class="navbar navbar-default window window-center window-left-slide window-right-slide navbar-fixed-top visible-xs visible-sm hidden-print" role="navigation">
   <div class="navbar-inner">
     <div class="container">
-      <a id="navbar-btn-menu" class="btn btn-navbar pull-left" data-toggle="slide" data-target=".slide-panel.left"><span class="icon-reorder"></span></a>
-      <a class="btn btn-navbar" data-toggle="slide" data-target=".slide-panel.right"><span class="icon-shopping-cart"></span></a>
-      <a class="brand scroll" href="#">
+      <a class="navbar-brand" href="#">
         Brand
       </a>
+      <button type="button" class="btn btn-default btn-left" data-toggle="window" data-target="#phone-left"><span class="glyphicon glyphicon-align-justify"></span></button>
+      <button type="button" class="btn btn-default btn-right" data-toggle="window" data-target="#phone-right"><span class="glyphicon glyphicon-bell"></span></button>
     </div>
+  </div>
+</nav>
+
+<div id="phone-left" class="window window-left window-invert visible-xs visible-sm hidden-print" aria-hidden="true">
+  <div class="contain">
+    <ul class="nav nav-stacked nav-striped">
+      <li class="li-header">
+        <img src="https://www.gravatar.com/avatar/foobar?s=55&r=g&d=identicon" width="55" height="55">
+        <span class="ellipsis"> Title</span>
+      </li>
+      <li>
+        <a id="#">
+          Link
+        </a>
+      </li>
+      <li>
+        <a id="#">
+          Link
+        </a>
+      </li>
+      <li>
+        <a id="#">
+          Link
+        </a>
+      </li>
+      <li>
+        <a id="#">
+          Link
+        </a>
+      </li>
+      <li>
+        <a id="#">
+          Link
+        </a>
+      </li>
+      <li>
+        <a id="#">
+          Link
+        </a>
+      </li>
+      <li class="li-bottom">
+        <a href="/me">
+          <img src="https://www.gravatar.com/avatar/foobar?s=55&r=g&d=identicon" width="55" height="55">
+          <span class="ellipsis">User</span>
+        </a>
+      </li>
+      <li class="li-footer text-center">
+        <div>
+          <a href="#">Link</a>
+          <a href="#">Link</a>
+          <a href="#">Link</a>
+        </div>
+        <small class="text-muted">&copy; 2013 Copyright</small>
+      </li>
+    </ul>
   </div>
 </div>
-<div id="navbar-desktop" class="navbar hidden-phone">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="brand" href="#tab-home" data-toggle="tab">
-        Brand Here
-      </a>
-      <ul class="nav pull-right">
-        <li><a href="#" data-toggle="tab">Link 1</a></li>
-        <li><a href="#" data-toggle="tab">Link 2</a></li>
-        <li><a href="#" data-toggle="tab">Link 3</a></li>
-        <li><a href="#" data-toggle="tab">Link 4</a></li>
-        <li>
-          <button href="#" class="btn btn-primary">Sign in</button>
-        </li>
-      </ul>
-    </div>
+
+<div id="phone-right" class="window window-right visible-xs visible-sm hidden-print">
+  <div class="contain">
+    <ul class="nav nav-stacked">
+      <li class="text-center text-muted">
+        Nav right
+      </li>
+    </ul>
   </div>
 </div>
 
-<div class="container">
-  <div id="panel-left" class="span2 slide-panel left">
-    <div class="contain">
-      <ul class="nav nav-tabs nav-stacked">
-        <li>
-          <a class="active" href="#" data-toggle="tab">
-            <i class="icon-sign-blank"></i> Navigation
-          </a>
-        </li>
-        <li>
-          <a href="#tab-locations" data-toggle="tab">
-            <i class="icon-sign-blank"></i> Navigation
-          </a>
-        </li>
-        <li>
-          <a href="#tab-menu" data-toggle="tab">
-            <i class="icon-sign-blank"></i> Navigation
-          </a>
-        </li>
-        <li id="nav-customer" class="hidden-desktop">
-          <a href="/me">
-            <img data-src="holder.js/55x55" alt="55x55" src="data:image/png;base64,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" style="width: 55px; height: 55px;">
-            Customer Name
-          </a>
-        </li>
-        <li class="footer visible-phone text-center">
-          <div>
-            <a href="#">Privacy</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Feedback</a>
-          </div>
-          <small class="muted">&copy; Some one...</small>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div id="panel-center" class="span8 slide-panel center">
-    <div class="contain">
-    <!-- 
-
-    Start Content
-
-    -->
-    
-
-
-    <!-- 
-
-    End Content
-
-    -->
-    </div><!-- /.panel-center .contain -->
-  </div><!-- /.panel-center -->
-
-  <div id="panel-right" class="span2 slide-panel right">
-    <div class="contain">
-
-    </div>
+<div class="container window window-center window-left-slide window-right-slide">
+  <div class="contain">
+    Make your window small  :)
   </div>
 </div><!-- /.container -->
 
-<footer class="text-center hidden-phone">
-  <hr>
-  <div>
-    <a href="/legal/privacy">Privacy</a>
-    <a href="/legal/terms">Terms of Use</a>
-    <span>&copy; Some one...</span>
-  </div>
-</footer>
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="bootpanels.js"></script>
-
-
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bootstrap-windows.js"></script>
 </body>
 </html>
