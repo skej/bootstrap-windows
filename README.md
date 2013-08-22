@@ -1,5 +1,7 @@
-bootstrap-panels
+Bootstrap Windows
 ================
+
+`bower install bootstrap-windows`
 
 Bootstrap layout for left and right slide panels.
 
