@@ -27,28 +27,26 @@
 
 @media (max-width: 992px) {
   body, html {
-    overflow: hidden;
     height: 100%;
     width: 100%;
     padding: 0px;
+    overflow: hidden;
   }
   .window{
     .transition(all .3s);
     overflow: hidden;
-    position: relative;
     &.window-left,
     &.window-right{
+      width: 80%;
+      height: 100%;
+      z-index: 100;
       visibility: hidden;
       position: fixed;
       top: 0px;
-      width: 80%;
-      height: 100%;
-      max-width: 80%;
-      z-index: 100;
       > .contain{
         height: 100%;
-        overflow: hidden;
         overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
         ul.nav.nav-stacked{
           /* for scrolling */
           &:not(.dropdown-menu){
@@ -92,22 +90,6 @@
             &.li-header{
               font-size: 2em;
             }
-            &.li-bottom{
-              /* intended for logged in user name + avatar */
-              position: absolute;
-              bottom: 1px;
-              width: 100%;
-              z-index: 201;
-              > a {
-                background-color: #F1F1F1;
-                padding: 0px;
-                > img{
-                  /* bottom image alignment */
-                  vertical-align: middle;
-                  margin-right: 5px;
-                }
-              }
-            }
             &.li-footer{
               padding: 20px;
               font-size: .85em;
@@ -117,14 +99,36 @@
               }
             }
           }
-          &.nav-striped > li:not(.li-footer):nth-child(2n) > a{
-            /* zebra rows */
-            background-color: #F7F7F7;
+        }
+        &.nav-striped > li:not(.li-footer):nth-child(2n) > a{
+          /* zebra rows */
+          background-color: #F7F7F7;
+        }
+      }
+      > footer{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        position: fixed;
+        bottom: 0px;
+        z-index: 201;
+        // background-color: #F7F7F7;
+        > a {
+          .text-ellipsis;
+          font-size: 18px;
+          line-height: 25px;
+          padding: 0px;
+          text-decoration: none;
+          // color: #ececec;
+          > img{
+            /* bottom image alignment */
+            vertical-align: middle;
+            margin-right: 5px;
           }
         }
       }
       /* inverted nav */
-      &.window-invert > .contain{
+      &.window-invert{
         background-color: #242424;
         ul.nav.nav-stacked{
           color: #ececec;
@@ -146,26 +150,39 @@
             background-color: #353434;
           }
         }
+        > footer{
+          background-color: #353434;
+          color: #ececec;
+          > a{
+            color: #ececec;
+          }
+        }
       }
     }
+    &.window-left{
+      left: 0px;
+    }
     &.window-right{
-      left: auto;
       right: 0px;
     }
     /* show methods */
-    &.window-go-left, &.window-go-right{
+    &.window-go-left{
       visibility: visible;
+    }
+    &.window-go-right{
+      visibility: visible;
+      + .window-right{
+        display: none !important;
+      }
     }
     &.window-left.window-left-slide{
       left: -80%;
-      z-index: 201;
       &.window-go-right{
         left: 0px;
       }
     }
     &.window-right.window-right-slide{
       right: -80%;
-      z-index: 201;
       &.window-go-left{
         right: 0px;
       }
@@ -173,12 +190,17 @@
     /* center panels */
     &.window-center{
       background: white;
+      position: relative;
+      overflow-y: scroll;
+      height: 100%;
+      -webkit-overflow-scrolling: touch;
       &.navbar{
         /* top navbar */
         width: 100%;
         height: 75px;
         margin: 0px;
         margin-bottom: 0px;
+        overflow: hidden;
         z-index: 201;
         > .navbar-inner{
           /* more padding for phones */
@@ -211,9 +233,8 @@
       }
       &.container{
         /* main content */
-        overflow-y: scroll;
         z-index: 200;
-        height: 100%;
+        // height: 100%;
         > .contain{
           padding: 10px;
           /* fix scrolling */
@@ -221,14 +242,10 @@
         }
       }
       &.window-left-slide.window-go-left{
-        /* disable scrolling */
-        overflow: hidden;
         .box-shadow(0px, -77px, 10px, #999);
         left: -80%;
       }
       &.window-right-slide.window-go-right{
-        /* disable scrolling */
-        overflow: hidden;
         .box-shadow(0px, -77px, 10px, #999);
         left: 80%;
       }

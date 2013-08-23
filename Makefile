@@ -10,7 +10,7 @@ help:
 	\033[1mamazon\033[0m: deploys to amazon\n\
 	\033[1mdeploy\033[0m: tag amazon\n\
 	\033[1mwatch\033[0m: watches for changes then builds\n\n\
-	\t \033[94mhttps://github.com/stevepeak/handyjs\033[0m\n\
+	\t \033[94mhttps://github.com/stevepeak/bootstrap-windows\033[0m\n\
 	\t\t\033[91mHappy Hacking\033[0m\n"
 
 open:
@@ -20,7 +20,7 @@ build:
 	grunt
 
 watch:
-	@echo "\033]0;handyjs • make watch\007"
+	@echo "\033]0;bootstrap-windows • make watch\007"
 	grunt watch
 
 amazon:
