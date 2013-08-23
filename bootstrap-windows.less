@@ -54,9 +54,9 @@
           }
           color: #494949;
           li{
-            font-size: 1.25em;
             > a{
               color: #494949;
+              font-size: 1.25em;
             }
             &.active > a{
               background-color: #006dcc;
@@ -88,7 +88,13 @@
               }
             }
             &.li-header{
-              font-size: 2em;
+              > h3 {
+                margin: 0px;
+                font-size: 1.5em;
+                img{
+                  margin-right: 3px;
+                }
+              }
             }
             &.li-footer{
               padding: 20px;
