@@ -262,3 +262,14 @@
     }
   }
 }
+@media print {
+  body, .container.window.window-center{
+    overflow: visible;
+  }
+  .window-center.navbar, .window.window-left, .window.window-right{
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    left: -1000 * 1000px;
+  }
+}
