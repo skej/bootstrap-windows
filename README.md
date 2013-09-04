@@ -5,7 +5,7 @@ Bootstrap Windows
 
 Bootstrap layout for left and right slide panels.
 
-Example here: http://stevepeak.github.io/bootstrap-panels/template.html
+Example here: http://stevepeak.github.io/bootstrap-windows/template.html
 
 Make your window smaller and larger to see the magic.
 
