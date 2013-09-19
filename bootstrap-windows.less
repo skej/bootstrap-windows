@@ -122,25 +122,30 @@ body > .navbar > .contain {
       > .window-footer{
         width: @base-width;
         margin: 0px;
-        padding: 0px;
         position: absolute;
         bottom: 0px;
         z-index: 201;
-        background-color: #F7F7F7;
-        border-top: 1px solid #535353;
-        > a {
-          .text-ellipsis;
-          color: #494949;
-          font-size: 18px;
-          line-height: 25px;
+        &div{
+          background-color: #F7F7F7;
+          border-top: 1px solid #535353;
           padding: 0px;
-          text-decoration: none;
-          // color: #ececec;
-          > img{
-            /* bottom image alignment */
-            vertical-align: middle;
-            margin-right: 5px;
+          > a {
+            .text-ellipsis;
+            color: #494949;
+            font-size: 18px;
+            line-height: 25px;
+            padding: 0px;
+            text-decoration: none;
+            // color: #ececec;
+            > img{
+              /* bottom image alignment */
+              vertical-align: middle;
+              margin-right: 5px;
+            }
           }
+        }
+        &.btn{
+          .border-radius(0px);
         }
       }
       /* inverted nav */
