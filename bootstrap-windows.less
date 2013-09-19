@@ -25,6 +25,8 @@
 }
 
 
+@base-width: 250px;
+
 @media (max-width: 992px) {
   body, html {
     height: 100%;
@@ -37,7 +39,7 @@
     overflow: hidden;
     &.window-left,
     &.window-right{
-      width: 80%;
+      width: @base-width;
       height: 100%;
       z-index: 100;
       visibility: hidden;
@@ -112,7 +114,7 @@
         }
       }
       > .window-footer{
-        width: 100%;
+        width: @base-width;
         margin: 0px;
         padding: 0px;
         position: fixed;
@@ -182,15 +184,15 @@
       }
     }
     &.window-left.window-left-slide{
-      left: -80%;
+      left: -@base-width;
       &.window-go-right{
         left: 0px;
       }
     }
     &.window-right.window-right-slide{
-      right: -80%;
+      left: @base-width;
       &.window-go-left{
-        right: 0px;
+        left: 0px;
       }
     }
     /* center panels */
@@ -250,11 +252,11 @@
       }
       &.window-left-slide.window-go-left{
         .box-shadow(0px, -77px, 10px, #999);
-        left: -80%;
+        left: -@base-width;
       }
       &.window-right-slide.window-go-right{
         .box-shadow(0px, -77px, 10px, #999);
-        left: 80%;
+        left: @base-width;
       }
     }
     .affix{
