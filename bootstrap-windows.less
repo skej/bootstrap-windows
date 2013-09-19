@@ -27,6 +27,21 @@
 
 @base-width: 250px;
 
+
+body > .navbar > .contain {
+  margin: auto;
+  padding: 0px 5px;
+  @media (min-width: 768px) {
+    max-width: 750px;
+  }
+  @media (min-width: 992px){
+    max-width: 970px;
+  }
+  @media (min-width: 1200px){
+    max-width: 1170px;
+  }
+}
+
 @media (max-width: 992px) {
   body, html {
     height: 100%;
