@@ -2,29 +2,115 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Bootstrap Panels</title>
-<meta http-equiv="Expires" content="Mon, 23 May 2050 20:17:44 GMT">
+<title>Skej</title>
+<meta charset="utf-8">
+<meta name="author" content="@iopeak">
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
 <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="bootstrap-windows.min.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<link rel="apple-touch-startup-image" href="http://localhost/skej/images/splash.png" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-icon" href="http://localhost/skej/images/icon.png"/>  
 <!--[if IE 7]>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome-ie7.min.css" rel="stylesheet">
 <![endif]-->
 </head>
+<style>
+  @media (min-width: 992px) {
+    .container.window.window-center{
+      margin-top: 75px;
+    }
+  }
+  @media (max-width: 992px) {
+    .container.window.window-center{
+      /*margin-top: 5px;*/
+    }
+    footer{
+      display: none;
+    }
+    #map-canvas{
+      height: 500px;
+      margin: 0 -15px;
+    }
+  }
+  #map-canvas, #map-canvas *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+   }
+</style>
+<script>
+var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 13,
+    center: new google.maps.LatLng(42.3652701, -71.0612769),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+  $(window).resize(function(){
+    $('#map-canvas').height($(window).height()-75);
+  });
+  $('#map-canvas').height($(window).height()-75);
+  var marker = new google.maps.Marker({
+       position: new google.maps.LatLng(42.3652701, -71.0612769),
+       map: map,
+       title:"Hello World!"
+   });
+  google.maps.event.addListener(marker, 'click', function(){
+    console.log('here')
+    $('.tab-pane').removeClass('active')
+    $('#tab-studio').addClass('active');
+  });
+
+  var marker = new google.maps.Marker({
+       position: new google.maps.LatLng(42.371025, -71.0790117),
+       map: map,
+       title:"Hello World!"
+   });
+  google.maps.event.addListener(marker, 'click', function(){
+    console.log('here')
+    $('.tab-pane').removeClass('active')
+    $('#tab-studio').addClass('active');
+  });
+
+
+  var marker = new google.maps.Marker({
+       position: new google.maps.LatLng(42.3592701, -71.0602769),
+       map: map,
+       title:"Hello World!"
+   });
+  google.maps.event.addListener(marker, 'click', function(){
+    console.log('here')
+    $('.tab-pane').removeClass('active')
+    $('#tab-studio').addClass('active');
+  });
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
 <body>
 
 <div id="desktop-nav" class="navbar navbar-default navbar-fixed-top hidden-xs hidden-sm">
   <div class="contain">
     <div class="navbar-header">
-      <a href="#" class="navbar-brand">Brand</a>
+      <a href="#tab-home" data-toggle="tab" class="navbar-brand">Skej</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="#">Nav</a></li>
-      <li><a href="#">Nav</a></li>
-      <li><a href="#">Nav</a></li>
-      <li><a href="#">Nav</a></li>
+      <li><a href="#tab-discover" data-toggle="tab"><i class="icon-search"></i> Discover</a></li>
+      <li><a href="#tab-favorites" data-toggle="tab"><i class="icon-star"></i> My Favorites</a></li>
+      <li><a href="#tab-calendar" data-toggle="tab"><i class="icon-calendar"></i> My Skej</a></li>
+      <li><a href="#tab-community" data-toggle="tab"><i class="icon-group"></i> Community</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Nav</a></li>
+      <li><a href="#">Sign in</a></li>
+      <li><button class="btn btn-success">Sign up</button></li>
     </ul>
   </div>
 </div>
@@ -33,10 +119,10 @@
   <div class="navbar-inner">
     <div class="container">
       <a class="navbar-brand" href="#">
-        Brand
+        <img src="http://localhost/skej/images/skej.png" height="60" style="margin-top:-10px;">
       </a>
-      <button type="button" class="btn btn-default btn-left" data-toggle="window" data-target="#phone-left"><span class="glyphicon glyphicon-align-justify"></span></button>
-      <button type="button" class="btn btn-default btn-right" data-toggle="window" data-target="#phone-right"><span class="glyphicon glyphicon-bell"></span></button>
+      <button type="button" class="btn btn-default btn-left" data-toggle="window" data-target="#phone-left"><span class="icon-align-justify"></span></button>
+      <!-- <button type="button" class="btn btn-default btn-right" data-toggle="window" data-target="#phone-right"><span class=""></span></button> -->
     </div>
   </div>
 </div>
@@ -44,59 +130,45 @@
 <div id="phone-left" class="window window-left window-invert visible-xs visible-sm hidden-print" aria-hidden="true">
   <div class="contain">
     <ul class="nav nav-stacked nav-striped">
-      <li class="li-header">
-        <img src="https://www.gravatar.com/avatar/foobar?s=55&r=g&d=identicon" width="55" height="55">
-        <span class="ellipsis"> Title</span>
-      </li>
       <li>
-        <a id="#">
-          Link
+        <a href="#tab-discover" data-toggle="tab">
+          <i class="icon-search"></i> Discover
         </a>
       </li>
       <li>
-        <a id="#">
-          Link
+        <a href="#tab-favorites" data-toggle="tab">
+          <i class="icon-star"></i> My Favorites
         </a>
       </li>
       <li>
-        <a id="#">
-          Link
+        <a href="#tab-calendar" data-toggle="tab">
+          <i class="icon-calendar"></i> My Skej&trade;
         </a>
       </li>
       <li>
-        <a id="#">
-          Link
-        </a>
-      </li>
-      <li>
-        <a id="#">
-          Link
-        </a>
-      </li>
-      <li>
-        <a id="#">
-          Link
+        <a href="#tab-community" data-toggle="tab">
+          <i class="icon-group"></i> Community
         </a>
       </li>
       <li class="li-footer text-center">
         <div>
-          <a href="#">Link</a>
-          <a href="#">Link</a>
-          <a href="#">Link</a>
+          <a href="#">Pricacy</a>
+          <a href="#">Terms of use</a>
+          <a href="#">Feedback</a>
         </div>
-        <small class="text-muted">&copy; 2013 Copyright</small>
+        <small class="text-muted">&copy; 2013 Copyright Skef&trade;</small>
       </li>
     </ul>
   </div>
-  <div class="window-footer">
-    <a href="/me">
-      <img src="https://www.gravatar.com/avatar/foobar?s=55&r=g&d=identicon" width="55" height="55">
-      <span class="ellipsis">User</span>
+  <div class="window-footer text-center">
+    <a href="#">
+      <img class="pull-left" src="https://www.gravatar.com/avatar/152d709a1c9431783198a496561bce8e?s=55&r=g&d=identicon" height="55">
+      <span style="font-size: 18px;position: relative;left: -40px;top: 13px;">Steve Peak</span>
     </a>
   </div>
 </div>
 
-<div id="phone-right" class="window window-right visible-xs visible-sm hidden-print">
+<!-- <div id="phone-right" class="window window-right visible-xs visible-sm hidden-print">
   <div class="contain">
     <ul class="nav nav-stacked">
       <li class="text-center text-muted">
@@ -107,43 +179,134 @@
   <a class="window-footer btn btn-primary btn-lg">
     Button
   </a>
-</div>
+</div> -->
 
 <div class="container window window-center window-left-slide window-right-slide">
-  <div class="jumbotron" style="margin-top:50px">
-    <div class="container">
-      <h1>Hello, world!</h1>
-      <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-      <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+  <div class="tab-content">
+    <div class="tab-pane" id="tab-home">
+      <div class="jumbotron" style="margin-top:50px">
+        <div class="container">
+          <h1>Hello, world!</h1>
+          <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+          <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        </div>
+      </div>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="tab-profile">
+      
+    </div>
+    <div class="tab-pane active" id="tab-discover">
+      <div id="map-canvas"></div>
+    </div>
+    <div class="tab-pane" id="tab-favorites">
+      <br>
+      <div class="list-group">
+        <a href="#tab-studio" data-toggle="tab" class="list-group-item">
+          <div class="media">
+            <img class="pull-left media-object" src="http://localhost/skej/images/bkblogo.png" height="55" width="55">
+            <div class="media-body">
+              <h4 class="media-heading">Brooklyn Boulders</h4>
+              Exist to enspire - <span class="text-muted">Rock Climbing Gym</span>
+            </div>
+          </div>
+        </a>
+        <a href="#tab-studio" data-toggle="tab" class="list-group-item">
+          <div class="media">
+            <img class="pull-left media-object" src="http://localhost/skej/images/commonwealthcrossfit.png" height="55" width="55">
+            <div class="media-body">
+              <h4 class="media-heading">Common Wealth Crossfit</h4>
+              Burpees are better - <span class="text-muted">Crossfit Gym</span>
+            </div>
+          </div>
+        </a>
+        <a href="#tab-studio" data-toggle="tab" class="list-group-item">
+          <div class="media">
+            <img class="pull-left media-object" src="http://localhost/skej/images/bosse.png" height="55" width="55">
+            <div class="media-body">
+              <h4 class="media-heading">Bosse</h4>
+              Workout feel good - <span class="text-muted">Fitness and Spa</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <button href="#tab-discover" data-toggle="tab" class="btn btn-success btn-lg btn-block">Find new favorites!</button>
+    </div>
+    <div class="tab-pane" id="tab-calendar">...</div>
+    <div class="tab-pane" id="tab-community">...</div>
+    <div class="tab-pane" id="tab-studio">
+      <br>
+      <!-- <img src="http://localhost/skej/images/bkb.jpeg" alt=""> -->
+      <div class="media">
+        <img class="pull-left media-object" src="http://localhost/skej/images/bkblogo.png" height="55" width="55">
+        <div class="media-body">
+          <h3 class="media-heading" style="margin-top: 10px;">Brooklyn Boulders</h3>
+        </div>
+      </div>
+      <hr>
+      <div class="list-group">
+        <div class="list-group-item">
+          <button class="btn btn-info pull-right btn" href="#tab-booked" data-toggle="tab" style="width:70px;height:70px;margin:5px">Book</button>
+          <h4 class="list-group-item-heading">7:30 am - Power Flow</h4>
+          <p class="list-group-item-text">All levels welcome! An athletic approach to your practice.</p>
+          <br>
+        </div>
+        <div class="list-group-item">
+          <button class="btn btn-info pull-right btn" href="#tab-booked" data-toggle="tab" style="width:70px;height:70px;margin:5px">Book</button>
+          <h4 class="list-group-item-heading">8:45 am - Vinyasa Yoga</h4>
+          <p class="list-group-item-text">All levels welcome! Prepare to sweat.</p>
+          <br>
+          <br>
+        </div>
+        <div class="list-group-item">
+          <button class="btn btn-info pull-right btn" href="#tab-booked" data-toggle="tab" style="width:70px;height:70px;margin:5px">Book</button>
+          <h4 class="list-group-item-heading">8:45 am - Crossfit Extreme</h4>
+          <p class="list-group-item-text">Shed the lb's - or cry alone</p>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane active" id="tab-book">
+      <br>
+      <button class="btn btn-block btn-info btn-lg" href="#tab-booked" data-toggle="tab">Book</button>
+      <button class="btn btn-block btn-default btn-lg">Gfit</button>
+    </div>
+    <div class="tab-pane" id="tab-booked">
+      <br><br><br>
+      <div class="text-center">
+        <h1 class="text-info lead" style="font-size:32px">Thanks Steve!</h1>
+        <h3 class="lead" style="font-size:20px">Your class has been scheduled</h3>
+        <h5 class="lead" style="font-size:15px">Enjoy your class</h5>
+        <img src="http://localhost/skej/images/facebook.png" alt="" height="50px">
+        <img src="http://localhost/skej/images/twitter.png" alt="" height="80px">
+        <img src="http://localhost/skej/images/calendar.png" alt="" height="50px">
+        <img src="http://localhost/skej/images/mail.jpeg" alt="" height="40px">
+    </div>
     </div>
   </div>
-  <!-- Example row of columns -->
-  <div class="row">
-    <div class="col-lg-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-    </div>
-    <div class="col-lg-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-   </div>
-    <div class="col-lg-4">
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-    </div>
-  </div>
-
   <hr>
-
   <footer>
-    <p>&copy; Company 2013</p>
+    <p>&copy; 2013 Skej&trade;</p>
   </footer>
 </div> <!-- /container -->
-
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="bootstrap-windows.min.js"></script>
